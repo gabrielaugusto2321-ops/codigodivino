@@ -1,8 +1,0 @@
-{
-  "rewrites": [
-    {
-      "source": "/_astro-1759272843566/:path*",
-      "destination": "https://codigodivino.site/_astro-1759272843566/:path*"
-    }
-  ]
-}
