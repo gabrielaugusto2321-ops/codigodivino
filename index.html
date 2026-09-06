@@ -108,7 +108,66 @@ fbq('track', 'PageView');</script><noscript><img height="1" width="1" style="dis
     max-width:600px;
     font-size:1.05rem;
   }
+  .hero-tagline{
+    font-size:1.05rem;
+    font-weight:600;
+    color:#fff;
+    margin-bottom:14px;
+    font-style:italic;
+  }
   .hero-cta{margin-top:28px;}
+  .hero-price{margin-top:12px;font-size:.95rem;color:var(--gold-light);}
+  .hero-price b{color:#fff;font-size:1.05rem;}
+  .trust-badges{
+    margin-top:10px;
+    font-size:.78rem;
+    color:#b9bcc6;
+    letter-spacing:.01em;
+  }
+  .offer-trust{
+    margin-top:16px;
+    font-size:.8rem;
+    color:var(--ink-soft);
+  }
+
+  /* STICKY MOBILE BAR */
+  .sticky-bar{
+    display:none;
+    position:fixed;
+    left:0;right:0;bottom:0;
+    z-index:999;
+    background:var(--navy-2);
+    padding:10px 14px;
+    box-shadow:0 -6px 20px rgba(0,0,0,.35);
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+  }
+  .sticky-bar .info{color:#fff;font-size:.82rem;line-height:1.25;}
+  .sticky-bar .info b{color:var(--gold-light);font-size:.95rem;}
+  .sticky-bar .btn{padding:12px 18px;font-size:.9rem;white-space:nowrap;}
+  #countdown{font-variant-numeric:tabular-nums;color:var(--red);font-weight:700;}
+
+  /* MIRA POR DENTRO */
+  .preview-gallery{
+    display:flex;
+    gap:16px;
+    overflow-x:auto;
+    padding:24px 4px 8px;
+    scroll-snap-type:x mandatory;
+  }
+  .preview-gallery img{
+    max-width:220px;
+    flex-shrink:0;
+    border-radius:8px;
+    box-shadow:0 10px 26px rgba(0,0,0,.18);
+    scroll-snap-align:start;
+  }
+
+  @media (max-width:759px){
+    .sticky-bar{display:flex;}
+    body{padding-bottom:74px;}
+  }
   .hero-mockup{
     margin-top:40px;
     max-width:440px;
@@ -300,10 +359,13 @@ fbq('track', 'PageView');</script><noscript><img height="1" width="1" style="dis
 <header class="hero">
   <div class="wrap">
     <div class="hero-eyebrow">CÓDIGO DIVINO</div>
+    <div class="hero-tagline">No es solo un estudio, es dirección.</div>
     <h1>Comprende la Biblia de principio a fin, con claridad, profundidad y poder espiritual</h1>
     <p class="lead">Un estudio visual y didáctico que revela los misterios y enseñanzas de toda la Biblia de una manera clara, organizada y accesible para todos.</p>
     <div class="hero-cta">
       <a class="btn" href="https://pay.hotmart.com/S107470868H?checkoutMode=10">QUIERO COMPRENDER LA BIBLIA</a>
+      <div class="hero-price">Hoy por solo <b>$6,90 USD</b> · acceso inmediato</div>
+      <div class="trust-badges">🔒 Pago 100% seguro &nbsp;·&nbsp; 💳 Visa · Mastercard · Pix &nbsp;·&nbsp; ✅ Entrega por Hotmart</div>
     </div>
     <img class="hero-mockup" src="assets/mockup-full.avif" alt="Código Divino - biblioteca completa">
   </div>
@@ -368,6 +430,15 @@ fbq('track', 'PageView');</script><noscript><img height="1" width="1" style="dis
         </div>
       </div>
     </div>
+
+    <h3 style="margin-top:48px;font-size:1.2rem;">Mira por dentro</h3>
+    <p class="section-lead">Así lucen las páginas de estudio, con explicación, reflexión y oración en cada tema:</p>
+    <div class="preview-gallery">
+      <img src="assets/preview-dia21.webp" alt="Ejemplo de página: Las Fiestas Sagradas">
+      <img src="assets/preview-josue.webp" alt="Ejemplo de página: Contexto Histórico del Libro de Josué">
+      <img src="assets/preview-exodo.webp" alt="Ejemplo de página: Éxodo explicado versículo por versículo">
+    </div>
+    <p class="section-lead" style="margin-top:20px;">Entre los más de 170 temas encontrarás estudios como <b>Agua Convertida en Vino</b>, <b>Sanidad del Ciego de Betsaida</b>, <b>La Fe de Rahab</b> y <b>Resurrección de la Hija de Jairo</b>, entre muchos otros.</p>
 
     <div class="center" style="margin-top:48px;">
       <a class="btn" href="https://pay.hotmart.com/S107470868H?checkoutMode=10">QUIERO COMPRENDER LA BIBLIA</a>
@@ -483,7 +554,8 @@ fbq('track', 'PageView');</script><noscript><img height="1" width="1" style="dis
         <li><img src="assets/check-icon.avif" alt="">📩 Entrega inmediata al correo electrónico</li>
       </ul>
       <a class="btn btn-wide" href="https://pay.hotmart.com/S107470868H?checkoutMode=10">QUIERO EL CÓDIGO DIVINO</a>
-      <p style="margin-top:14px;font-size:.85rem;color:var(--ink-soft);">Oferta limitada — últimos cupos disponibles</p>
+      <p style="margin-top:14px;font-size:.85rem;color:var(--ink-soft);">Oferta limitada — expira en <span id="countdown">15:00</span></p>
+      <p class="offer-trust">🔒 Pago 100% seguro &nbsp;·&nbsp; 💳 Visa · Mastercard · Pix &nbsp;·&nbsp; ✅ Entrega por Hotmart</p>
     </div>
   </div>
 </section>
@@ -539,6 +611,41 @@ fbq('track', 'PageView');</script><noscript><img height="1" width="1" style="dis
     Código Divino — Todos los derechos reservados.
   </div>
 </footer>
+
+<div class="sticky-bar">
+  <div class="info">Oferta hoy: <b>$6,90 USD</b><br>Expira en <span id="countdown-mobile">15:00</span></div>
+  <a class="btn" href="https://pay.hotmart.com/S107470868H?checkoutMode=10">QUIERO</a>
+</div>
+
+<script>
+(function(){
+  var totalSeconds = 15 * 60;
+  var key = 'cd_start';
+  var start = sessionStorage.getItem(key);
+  var now = Date.now();
+  if(!start){
+    start = now;
+    sessionStorage.setItem(key, start);
+  }
+  var elapsed = Math.floor((now - start) / 1000);
+  var remaining = Math.max(totalSeconds - elapsed, 0);
+
+  var els = [document.getElementById('countdown'), document.getElementById('countdown-mobile')];
+  function render(){
+    var m = Math.floor(remaining / 60);
+    var s = remaining % 60;
+    var text = (m < 10 ? '0' : '') + m + ':' + (s < 10 ? '0' : '') + s;
+    els.forEach(function(el){ if(el) el.textContent = text; });
+    if(remaining > 0){
+      remaining--;
+    } else {
+      remaining = totalSeconds;
+    }
+  }
+  render();
+  setInterval(render, 1000);
+})();
+</script>
 
 </body>
 </html>
